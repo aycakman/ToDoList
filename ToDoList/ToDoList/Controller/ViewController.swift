@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "customCell")
     }
     
     private func reloadTasks() {
