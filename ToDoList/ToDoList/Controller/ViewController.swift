@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet var addButton: UIBarButtonItem!
     
     private var viewModel = TaskViewModel()
-    
     var selectedRowIndex: Int?
     
     override func viewDidLoad() {
@@ -34,10 +33,20 @@ class ViewController: UIViewController {
         viewModel.reloadTasks = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.setNeedsUpdateContentUnavailableConfiguration()  //update changes
             }
         }
     }
-    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        var config = UIContentUnavailableConfiguration.empty()
+        if viewModel.numberOfTasks() == 0 {
+            config.image = UIImage(systemName: "square.and.pencil.circle.fill")
+            config.text = "No Tasks"
+            config.secondaryText = "If you want, you can add your tasks"
+        }
+        contentUnavailableConfiguration = config
+    }
+
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add a new task", message: nil, preferredStyle: .alert)
@@ -59,7 +68,6 @@ class ViewController: UIViewController {
     }
     
 }
-
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
