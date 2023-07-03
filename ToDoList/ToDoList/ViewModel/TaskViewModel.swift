@@ -35,8 +35,14 @@ class TaskViewModel {
         reloadTasks?()
         saveTasks()
     }
-
-    func toggleTaskCompletion(at index: Int) {
+    
+    func deleteTasks(at index: Int) {
+        tasks.remove(at: index)
+        reloadTasks?()
+        saveTasks()
+    }
+    
+    func completeTasks(at index: Int) {
         tasks[index].isCompleted.toggle()
         reloadTasks?()
         saveTasks()

@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         
         let alert = UIAlertController(title: "Add a new task", message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
-            textField.placeholder = "Enter a task title"
+            textField.placeholder = "Enter your task"
         }
         
         let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
@@ -64,7 +64,16 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.toggleTaskCompletion(at: indexPath.row)
+        viewModel.completeTasks(at: indexPath.row)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteTasks(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
         
     }
 }
@@ -77,10 +86,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         let title = viewModel.taskTitle(at: indexPath.row)
         let isCompleted = viewModel.isTaskCompleted(at: indexPath.row)
-        cell.textLabel?.text = title
+        cell.titleLabel?.text = title
         cell.accessoryType = isCompleted ? .checkmark : .none
         return cell
     }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--To Do List:)-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +20,32 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="pnO-3N-XWD">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="72" id="pnO-3N-XWD" customClass="CustomTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pnO-3N-XWD" id="OiW-wN-5fD">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0P-nu-KIg">
+                                                    <rect key="frame" x="30" y="23" width="290" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="290" id="S20-qj-cgi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z0P-nu-KIg" firstAttribute="centerY" secondItem="OiW-wN-5fD" secondAttribute="centerY" id="8v9-Xw-Lo6"/>
+                                                <constraint firstItem="Z0P-nu-KIg" firstAttribute="leading" secondItem="OiW-wN-5fD" secondAttribute="leadingMargin" constant="10" id="V9F-xY-Fgj"/>
+                                                <constraint firstItem="Z0P-nu-KIg" firstAttribute="top" secondItem="OiW-wN-5fD" secondAttribute="topMargin" constant="12" id="rGR-EC-WQX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Z0P-nu-KIg" id="g4y-W5-gXM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -34,13 +53,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="I8S-lo-hCv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5W6-C0-Mor"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I8S-lo-hCv" secondAttribute="bottom" id="KMl-Sk-8Za"/>
-                            <constraint firstItem="I8S-lo-hCv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cDo-6J-Jco"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I8S-lo-hCv" secondAttribute="trailing" id="oUU-ly-XvG"/>
+                            <constraint firstItem="I8S-lo-hCv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ld5-tD-TT5"/>
+                            <constraint firstItem="I8S-lo-hCv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OcX-Oq-5qW"/>
+                            <constraint firstItem="I8S-lo-hCv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Vcj-YU-CHX"/>
+                            <constraint firstItem="I8S-lo-hCv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="reW-T5-bwx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YaT-1g-mgx">
+                    <navigationItem key="navigationItem" title="To Do List:)" id="YaT-1g-mgx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T6x-yT-LwO">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="1ZC-zB-W1X"/>
