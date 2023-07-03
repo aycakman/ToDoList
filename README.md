@@ -50,3 +50,5 @@ Overall, MVVM is a more modern and flexible architectural pattern than MVC. It c
 * You can then specify the title, message, and image that you want to display on the empty page.
 
 Hope this helps on your Swift learning journey!:)
+
+https://github.com/aycakman/Music-App3/assets/81530201/2a08e241-d674-43c5-bdcc-eb96fc049938
