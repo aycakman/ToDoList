@@ -13,6 +13,8 @@
 		11B768D12A52D8CD0083C665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B768CF2A52D8CD0083C665 /* Main.storyboard */; };
 		11B768D32A52D8CD0083C665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B768D22A52D8CD0083C665 /* Assets.xcassets */; };
 		11B768D62A52D8CD0083C665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B768D42A52D8CD0083C665 /* LaunchScreen.storyboard */; };
+		11B768E22A52DA8A0083C665 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B768E12A52DA8A0083C665 /* Model.swift */; };
+		11B768E42A52DB830083C665 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B768E32A52DB830083C665 /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		11B768D22A52D8CD0083C665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11B768D52A52D8CD0083C665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B768D72A52D8CD0083C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11B768E12A52DA8A0083C665 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		11B768E32A52DB830083C665 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		11B768DE2A52D92C0083C665 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				11B768E32A52DB830083C665 /* TaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		11B768DF2A52D9360083C665 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11B768E12A52DA8A0083C665 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +179,8 @@
 				11B768CE2A52D8CD0083C665 /* ViewController.swift in Sources */,
 				11B768CA2A52D8CD0083C665 /* AppDelegate.swift in Sources */,
 				11B768CC2A52D8CD0083C665 /* SceneDelegate.swift in Sources */,
+				11B768E42A52DB830083C665 /* TaskViewModel.swift in Sources */,
+				11B768E22A52DA8A0083C665 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
