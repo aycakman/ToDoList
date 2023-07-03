@@ -51,4 +51,5 @@ Overall, MVVM is a more modern and flexible architectural pattern than MVC. It c
 
 Hope this helps on your Swift learning journey!:)
 
-https://github.com/aycakman/Music-App3/assets/81530201/2a08e241-d674-43c5-bdcc-eb96fc049938
+https://github.com/aycakman/ToDoList/assets/81530201/21b9097a-3cbb-4001-920c-5d4dcd86a95c
+
