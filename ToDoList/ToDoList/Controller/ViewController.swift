@@ -14,18 +14,18 @@ protocol TaskViewInterface: AnyObject {
 }
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var addButton: UIBarButtonItem!
     
     private lazy var viewModel = TaskViewModel()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.view = self
         viewModel.viewDidLoad()
     }
-
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         viewModel.addButtonPressed()
     }
@@ -60,15 +60,6 @@ extension ViewController: UITableViewDataSource {
         let isCompleted = viewModel.isTaskCompleted(at: indexPath.row)
         cell.titleLabel?.text = title
         cell.accessoryType = isCompleted ? .checkmark : .none
-        /*
-         let accessoryType = viewModel.completedResult(at: indexPath.row)
-         switch accessoryType {
-         case .checkmark:
-             cell.accessoryType = .checkmark
-         case .none:
-             cell.accessoryType = .none
-         }
-         */
         return cell
     }
 }
@@ -99,7 +90,7 @@ extension ViewController: TaskViewInterface {
         contentUnavailableConfiguration = config
         
     }
-
+    
     
     func addTaskAlert(){
         let alert = UIAlertController(title: "Add a new task", message: nil, preferredStyle: .alert)

@@ -7,10 +7,6 @@
 
 import Foundation
 
-//enum CellAccessoryType {
-//    case checkmark
-//    case none
-//}
 
 protocol TaskViewModelInterface {
     var view: TaskViewInterface? { get set }
@@ -26,8 +22,7 @@ protocol TaskViewModelInterface {
     func isTaskCompleted(at index: Int) -> Bool
     func updatePageView() -> Bool
     func addButtonPressed()
-    //func completedResult(at index: Int) -> CellAccessoryType
-
+    
 }
 
 final class TaskViewModel {
@@ -36,11 +31,10 @@ final class TaskViewModel {
     private var tasks = [Task]()
     
     let userDefaults = UserDefaults.standard
-
 }
 
 extension TaskViewModel: TaskViewModelInterface {
-
+    
     func viewDidLoad() {
         view?.prepareTableView()
     }
@@ -101,10 +95,5 @@ extension TaskViewModel: TaskViewModelInterface {
     func addButtonPressed() {
         view?.addTaskAlert()
     }
-    
-//    func completedResult(at index: Int) -> CellAccessoryType {
-//        return isTaskCompleted(at: index) ? .checkmark : .none
-//    }
-//    
     
 }
