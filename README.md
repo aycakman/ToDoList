@@ -12,7 +12,7 @@ The primary purpose of this project is to change the architecture of this applic
 ## Features
 
 * The app displays tasks entered by the user in a TableView.
-* Tasks can be stored, deleted, and checked/unchecked using local storage using UserDefaults. 
+* Tasks can be stored, deleted, and checked/unchecked using local storage (UserDefaults). 
 * UIContentUnavailableConfiguration, a new feature introduced in UIKit that allows us to customize the appearance of an empty page, which I learned about while following WWDC23.
 
 ## Benefits
