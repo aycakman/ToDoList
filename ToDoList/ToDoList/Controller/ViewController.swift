@@ -7,35 +7,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol TaskViewInterface: AnyObject {
+    func prepareTableView()
+    func reloadTasks()
+   
+}
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var addButton: UIBarButtonItem!
+final class ViewController: UIViewController {
+
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var addButton: UIBarButtonItem!
     
-    private var viewModel = TaskViewModel()
-    var selectedRowIndex: Int?
+    private lazy var viewModel = TaskViewModel()
+    
+    private var selectedRowIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        reloadTasks()
-        viewModel.loadTasks()
-        
+        viewModel.view = self 
+        viewModel.viewDidLoad()
     }
 
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
-    private func reloadTasks() {
-        viewModel.reloadTasks = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.setNeedsUpdateContentUnavailableConfiguration()  //update changes
-            }
-        }
-    }
     override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
         var config = UIContentUnavailableConfiguration.empty()
         if viewModel.numberOfTasks() == 0 {
@@ -44,10 +36,10 @@ class ViewController: UIViewController {
             config.secondaryText = "If you want, you can add your tasks"
         }
         contentUnavailableConfiguration = config
+        
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         let alert = UIAlertController(title: "Add a new task", message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Enter your task"
@@ -63,7 +55,6 @@ class ViewController: UIViewController {
         alert.addAction(addAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
-        
     }
     
 }
@@ -89,7 +80,6 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfTasks()
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,3 +92,20 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+
+
+extension ViewController: TaskViewInterface {
+    func prepareTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        viewModel.loadTasks()
+    }
+    
+    func reloadTasks() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.setNeedsUpdateContentUnavailableConfiguration()  //update changes
+        }
+    }
+    
+}
